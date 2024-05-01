@@ -8,6 +8,7 @@ import {
   DivListImages,
   Button,
   IconButton,
+  DivBigImg,
   BigImg,
   DivText,
   TitleChair,
@@ -19,6 +20,7 @@ import {
 } from "./ChairCard.styled";
 import { useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
+import { UlColorsChair } from "components/UlColorsChair/UlColorsChair";
 
 const ChairCard = () => { 
   const {id} = useParams();
@@ -27,6 +29,7 @@ const ChairCard = () => {
 
 
   const divImagesRef = useRef(null);
+  const divBigImgRef = useRef(null);
   const divTextRef = useRef(null);
   const titleChairRef = useRef(null);
   const priceRef = useRef(null);
@@ -34,11 +37,12 @@ const ChairCard = () => {
 
   useEffect(() => {
     if (divImagesRef.current && divTextRef.current && titleChairRef.current && priceRef.current
-        && titleDescriptionRef.current) {
+        && titleDescriptionRef.current && divBigImgRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
       const divImages = divImagesRef.current;
+      const divBigImg = divBigImgRef.current;
       const divText = divTextRef.current;
       const titleChair = titleChairRef.current;
       const price = priceRef.current;
@@ -51,6 +55,7 @@ const ChairCard = () => {
       divText.style.fontSize = screenWidth / (coef * 42) + 'px';
       price.style.fontSize = screenWidth / (coef * 35) + 'px';
       titleDescription.style.marginTop = screenWidth / (coef * 71.8) + 'px';
+      divBigImg.style.width = screenWidth / (coef * 1.5) + 'px';
     }
   }, [realScreenWidth]);
 
@@ -72,7 +77,9 @@ const ChairCard = () => {
             </IconButton>
           </Button>
           </DivListImages>
-          <BigImg src={ chair[chair.color].titleImage } alt={chair.title} />
+          <DivBigImg ref={divBigImgRef}>
+            <BigImg src={ chair[chair.color].titleImage } alt={chair.title} />
+          </DivBigImg>
         </DivImages>
         <DivText ref={divTextRef}>
           <TitleChair ref={titleChairRef}>{chair.title}</TitleChair>
@@ -80,6 +87,7 @@ const ChairCard = () => {
           <PlainText>
             {chair.smollDescription}
           </PlainText>
+          <UlColorsChair id={ id } />
           <DivDescription>
             <TitleDescription ref={titleDescriptionRef}>DESCRIPTION</TitleDescription>
             {chair.description.map((p, index) => <PlainText key={index}>{ p }</PlainText>)}

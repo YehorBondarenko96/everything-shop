@@ -22,8 +22,12 @@ export const IconButton = styled.svg`
   display: inline-block;
 `;
 
-export const BigImg = styled.img`
+export const DivBigImg = styled.div`
 height: 100%;
+`;
+
+export const BigImg = styled.img`
+width: 100%;
 object-fit: cover;
 `;
 
