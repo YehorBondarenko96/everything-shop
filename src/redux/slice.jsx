@@ -54,9 +54,12 @@ const initialState = {
     {
       id: '2',
       title: 'Glideride 2',
-      titleImage: '../../src/assets/first-shoes.png',
       to: '/shoes-card',
-      images: []
+      color: 'yellow',
+      yellow: {
+        titleImage: '../../src/assets/first-shoes.png',
+        images: []
+      },
       }
   ],
   screenWidth: null

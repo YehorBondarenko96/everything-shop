@@ -38,7 +38,7 @@ export const PreviewCard = ({ item }) => {
     <Link to={`${item.to}/${item.id}`}>
     <Li ref={liRef}>
       <DivImage ref={divImageRef}>
-        <Image src={item.titleImage} />
+        <Image src={item[item.color].titleImage} />
       </DivImage>
       <Title>
         {item.title}
