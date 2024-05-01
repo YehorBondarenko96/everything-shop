@@ -10,7 +10,12 @@ import {
   IconButton,
   BigImg,
   DivText,
-  TitleChair
+  TitleChair,
+  Price,
+  OldPrice,
+  PlainText,
+  DivDescription,
+  TitleDescription
 } from "./ChairCard.styled";
 import { useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
@@ -24,20 +29,28 @@ const ChairCard = () => {
   const divImagesRef = useRef(null);
   const divTextRef = useRef(null);
   const titleChairRef = useRef(null);
+  const priceRef = useRef(null);
+  const titleDescriptionRef = useRef(null);
 
   useEffect(() => {
-    if (divImagesRef.current && divTextRef.current && titleChairRef.current) {
+    if (divImagesRef.current && divTextRef.current && titleChairRef.current && priceRef.current
+        && titleDescriptionRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
       const divImages = divImagesRef.current;
       const divText = divTextRef.current;
       const titleChair = titleChairRef.current;
+      const price = priceRef.current;
+      const titleDescription = titleDescriptionRef.current;
 
       divImages.style.height = screenWidth / (coef * 1.5) + 'px';
       divImages.style.gap = screenWidth / (coef * 15) + 'px';
       titleChair.style.fontSize = screenWidth / (coef * 30) + 'px';
       divText.style.padding = `${screenWidth / (coef * 15)}px ${screenWidth / (coef * 21)}px`;
+      divText.style.fontSize = screenWidth / (coef * 42) + 'px';
+      price.style.fontSize = screenWidth / (coef * 35) + 'px';
+      titleDescription.style.marginTop = screenWidth / (coef * 71.8) + 'px';
     }
   }, [realScreenWidth]);
 
@@ -52,17 +65,25 @@ const ChairCard = () => {
             <use href={`${sprite}#arrow-up`} />
             </IconButton>
           </Button>
-          <UlChairsPhoto photos={chair.images} title={chair.title} />
+          <UlChairsPhoto photos={chair[chair.color].images} title={chair.title} />
           <Button>
             <IconButton>
             <use href={`${sprite}#arrow-down`} />
             </IconButton>
           </Button>
           </DivListImages>
-          <BigImg src={ chair.titleImage } alt={chair.title} />
+          <BigImg src={ chair[chair.color].titleImage } alt={chair.title} />
         </DivImages>
         <DivText ref={divTextRef}>
-          <TitleChair ref={titleChairRef}>{ chair.title }</TitleChair>
+          <TitleChair ref={titleChairRef}>{chair.title}</TitleChair>
+          <Price ref={priceRef}><OldPrice>{`${chair.price} UAH`}</OldPrice> {`${chair.newPrice} UAH`}</Price>
+          <PlainText>
+            {chair.smollDescription}
+          </PlainText>
+          <DivDescription>
+            <TitleDescription ref={titleDescriptionRef}>DESCRIPTION</TitleDescription>
+            {chair.description.map((p, index) => <PlainText key={index}>{ p }</PlainText>)}
+          </DivDescription>
         </DivText>
         </>
       }
