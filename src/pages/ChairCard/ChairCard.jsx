@@ -8,7 +8,9 @@ import {
   DivListImages,
   Button,
   IconButton,
-  BigImg
+  BigImg,
+  DivText,
+  TitleChair
 } from "./ChairCard.styled";
 import { useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
@@ -20,23 +22,29 @@ const ChairCard = () => {
 
 
   const divImagesRef = useRef(null);
+  const divTextRef = useRef(null);
+  const titleChairRef = useRef(null);
 
   useEffect(() => {
-    if (divImagesRef.current) {
+    if (divImagesRef.current && divTextRef.current && titleChairRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
       const divImages = divImagesRef.current;
+      const divText = divTextRef.current;
+      const titleChair = titleChairRef.current;
 
       divImages.style.height = screenWidth / (coef * 1.5) + 'px';
       divImages.style.gap = screenWidth / (coef * 15) + 'px';
-
+      titleChair.style.fontSize = screenWidth / (coef * 30) + 'px';
+      divText.style.padding = `${screenWidth / (coef * 15)}px ${screenWidth / (coef * 21)}px`;
     }
   }, [realScreenWidth]);
 
   return (
     <Card>
       {chair &&
+        <>
         <DivImages ref={divImagesRef}>
           <DivListImages>
             <Button>
@@ -53,6 +61,10 @@ const ChairCard = () => {
           </DivListImages>
           <BigImg src={ chair.titleImage } alt={chair.title} />
         </DivImages>
+        <DivText ref={divTextRef}>
+          <TitleChair ref={titleChairRef}>{ chair.title }</TitleChair>
+        </DivText>
+        </>
       }
     </Card>
   )

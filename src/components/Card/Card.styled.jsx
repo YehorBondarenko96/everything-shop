@@ -14,7 +14,7 @@ export const Backdrop = styled.div`
 `;
 
 export const Container = styled.div`
-  display: inline-block;
+  display: flex;
   width: 100%;
   margin: 40px 20px;
   border-radius: 10px;
