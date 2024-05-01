@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/everything-shop/static/css/main.cc7661cd.css",
+    "main.js": "/everything-shop/static/js/main.cc955c72.js",
+    "static/js/382.e57cc7c0.chunk.js": "/everything-shop/static/js/382.e57cc7c0.chunk.js",
+    "static/js/152.b4c563c5.chunk.js": "/everything-shop/static/js/152.b4c563c5.chunk.js",
+    "static/media/sprite.svg": "/everything-shop/static/media/sprite.19cbf14bee24c03fd185edac6964776c.svg",
+    "index.html": "/everything-shop/index.html",
+    "main.cc7661cd.css.map": "/everything-shop/static/css/main.cc7661cd.css.map",
+    "main.cc955c72.js.map": "/everything-shop/static/js/main.cc955c72.js.map",
+    "382.e57cc7c0.chunk.js.map": "/everything-shop/static/js/382.e57cc7c0.chunk.js.map",
+    "152.b4c563c5.chunk.js.map": "/everything-shop/static/js/152.b4c563c5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc7661cd.css",
+    "static/js/main.cc955c72.js"
+  ]
+}
