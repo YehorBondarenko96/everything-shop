@@ -16,7 +16,8 @@ import {
   OldPrice,
   PlainText,
   DivDescription,
-  TitleDescription
+  TitleDescription,
+  DivOptions
 } from "./ChairCard.styled";
 import { useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
@@ -34,10 +35,11 @@ const ChairCard = () => {
   const titleChairRef = useRef(null);
   const priceRef = useRef(null);
   const titleDescriptionRef = useRef(null);
+  const divOptionsRef = useRef(null);
 
   useEffect(() => {
     if (divImagesRef.current && divTextRef.current && titleChairRef.current && priceRef.current
-        && titleDescriptionRef.current && divBigImgRef.current) {
+        && titleDescriptionRef.current && divBigImgRef.current && divOptionsRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
@@ -47,6 +49,7 @@ const ChairCard = () => {
       const titleChair = titleChairRef.current;
       const price = priceRef.current;
       const titleDescription = titleDescriptionRef.current;
+      const divOptions = divOptionsRef.current;
 
       divImages.style.height = screenWidth / (coef * 1.5) + 'px';
       divImages.style.gap = screenWidth / (coef * 15) + 'px';
@@ -56,6 +59,7 @@ const ChairCard = () => {
       price.style.fontSize = screenWidth / (coef * 35) + 'px';
       titleDescription.style.marginTop = screenWidth / (coef * 71.8) + 'px';
       divBigImg.style.width = screenWidth / (coef * 1.5) + 'px';
+      divOptions.style.marginBottom = screenWidth / (coef * 42) + 'px';
     }
   }, [realScreenWidth]);
 
@@ -87,7 +91,9 @@ const ChairCard = () => {
           <PlainText>
             {chair.smollDescription}
           </PlainText>
-          <UlColorsChair id={ id } />
+          <DivOptions ref={divOptionsRef}>
+            <UlColorsChair id={ id } />
+          </DivOptions>
           <DivDescription>
             <TitleDescription ref={titleDescriptionRef}>DESCRIPTION</TitleDescription>
             {chair.description.map((p, index) => <PlainText key={index}>{ p }</PlainText>)}

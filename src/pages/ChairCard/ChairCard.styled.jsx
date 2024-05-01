@@ -58,3 +58,5 @@ border-top: 1px solid #a7a7a7;
 export const TitleDescription = styled.h3`
 color: #a7a7a7
 `;
+
+export const DivOptions = styled.div``;
