@@ -11,7 +11,10 @@ import {
   PriceInfo,
   DivDropLists
 } from "./ShoesCard.styled";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  // useDispatch,
+  useSelector
+} from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { selectItems, selectScreenWidth } from "../../redux/selectors";
@@ -20,7 +23,7 @@ import { UlColorsShoes } from "components/UlColorsShoes/UlColorsShoes";
 import { SizeShose } from "components/SizeShose/SizeShose";
 
 const ShoesCard = () => { 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { id } = useParams();
   const shoes = useSelector(selectItems).find(item => item.id === id);
   const realScreenWidth = useSelector(selectScreenWidth);
