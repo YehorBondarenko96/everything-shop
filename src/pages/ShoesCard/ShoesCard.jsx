@@ -1,9 +1,21 @@
 import { Card } from "../../components/Card/Card";
+import {
+  DivImgButtons,
+  DivImg,
+  DivInfo
+} from "./ShoesCard.styled";
 
 const ShoesCard = () => { 
   return (
     <Card>
-      ShoesCard
+      <DivImgButtons>
+        <DivImg>
+          
+        </DivImg>
+      </DivImgButtons>
+      <DivInfo>
+
+      </DivInfo>
     </Card>
   )
 };

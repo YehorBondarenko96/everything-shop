@@ -59,11 +59,49 @@ const initialState = {
       id: '2',
       title: 'Glideride 2',
       to: '/shoes-card',
-      color: 'yellow',
-      yellow: {
-        titleImage: '../../src/assets/first-shoes.png',
-        images: []
+      color: 'black',
+      black: {
+        titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
+        images: [
+          'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczPxhZGa6HJVtgN7US2gs9dgEfCobNUbBiXWoWsSJIH2THZrhm9NsbwwuKFqX-1Xhw6lE9C5Z8ufGJ0yAGJ_SRkhCHaJwPkRAHwZw8RIZryKNxmlZkl4ScKbXDliDJuuKsbD1wGg212w93c_acGp46eHIQ=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczOvv2o8K-mFSDoMjPtulDjX4NkiCuvvEiSn3F5y10zo1V3BDeEkLH0mOSgs3FPEsVkrQ95XCY0PQIFzurNkRSgGH0gUp5CMnVNNTv8PdmmlVKlBwhR6AMYiQnbqB2pj6fSvbqCTvlxSPQsLoCVs6MEfsA=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczP-by892McTW0iPo3G65WygX4NAgpF7m4tqXSN_y8Ufnl4RCK3QqWX9W1hgwFWOuseBNHBKQtPcNJM6QlKjoY8zlPNWc3nutt6LLeIYvY6zZ15pG17uepTlEgZMncj8MLEgNPzAiW_j8SO5h-nl8l1F4g=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczNXUOTT7QcWlngYMxgf7dfN3WEoOisDnGpgy09lpwj6JJgRErzrE7SPN9wWVWqcBxuq_vIDu-ClEEowTA22bpJgkRIsPTJxxVrUN4sNDtblaZ11PR51AjLbB4E70Z2H1pY-IHPtuuvSdfiAALz4b9_mBA=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczOpLW5dzy8GY-eHrLVkxtcMptg8UjBuJvV129cV5t7GxO9FDXLwE_B5Cqlc8zuSI_S2V5_nCzavBv-qxnimYDf5NjTxaWtLBwY_UGGxATW3xdg8TEOruka8bEa3oV9BDfI3E2ySslhwmiOcWTrEcje0Kg=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczMqNhwAapdVk-_f2nJ-VSnJuH7KCJKRuJg-1f-E32dX1blhSlJIR1yCOs5bdhbwQzM21LV7Ju4sUKiYvjkKgH_O1Qmnx7aS2modWmipiYLpIhtTijfdvQZhb9GDRUUs8goHaaM1iBGjjLLPbGUglXILog=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczN3XWs96uE6Htj7Nj-ZjVtUk7drLLXvwDc48br0jl3KmlpT1OOy6dOVhgX3SJJBjYb9nGJKjr2jicVmbDbUI7n_GmvqV8oZhAqEvKR9bL44-W98TMEfCtX0ShijMuko_GcuUUSxzamcNPpIphupDgVShQ=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczONth2zyex1fvixDJiF8_R6niw_KlmnDBQdthymaN8b_iivGJWPrLhKXNf1_qqXhZwKfQP5LA3PGI5SnfyVBoLOhOkU1yOp-IeFFyKN1Wp6R-znpTZxcaAzJZ5xIHZhfgZqQEFpZvVDzWyaNcqou89zVA=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczMquX6zx7R1CEn8tcoT6iTqUUezIWh8ZGEUtMG4ZGTsU3eyXOioQYfiRKKov1yyLbfv8lELpyS4_AARX6IZadvingPu0AFZ9bKq4tVSopeM8yRLZ2TaWtwXLrsNZfAP2Q_YLOQTSTcbjH8LqRyD40_t7w=w472-h497-s-no-gm?authuser=0'
+        ],
+        sizes: ["41", "42", "43", "44", "45"],
+        width: ["10.5", "11", "11.5", "12"]
       },
+      blue: {
+        titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
+        images: [
+          'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczMfcXgRA_fYeiaFz6nYjeCihA84TOeKyuHp2pIB9FWpvslRKEktKRbSOkN5DGkRvtjAh_3M4yaboiqwsiy8twPYqBOpR7ettRScvWikb1n4-zc0cBP5wyuUoMQVjwM0foN8PKpY94xr-FbWap4fC2fzZg=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczPx8rFz0wL0HXQXpWQc90OzJ_V7nBYDGam-bQU10tgZO_aEoQzu2hxnNUeMWsYHhuPXwoqlc3ApvgH30RXMGw6pgVJuRdyphwmsEXx8kuWDzhGMNXAAGTOceyLc1_ccrfk2DCeK_hF4Eem_dftxtJ7MhA=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczOTGMYr_N-fWIhSoKzbknzZzXBrO2PFOgg5FchDDpSjbcsAlXkkNm9xwCzOQx9w4kWXS8xI1YloorNOsqYpFWwMRKgXUxjul8IAdZJi4ruNQykhklCd_QSsgZtyVLdW0qaAx1GQFuN_KwMq0rEzYXhLKQ=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczO5AdE5YWTwo0cDtxRgow-afh_c_tgyivzGEQkYFuUYczRagr5Cp2p0phNc4BJpAge-LngFxjuIOIUAKWj8aUpmkHoP8B40mOkhhALUxXTEUiQhs2XAW2oOfwqna-9Mmmcvspfbsvfvq4XY5crIbKc38Q=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczOD33n4NAbv0tmdPg4ocAkps4J3ay53nlToPdp5fwu0BxeyRHEBeljvYli1H6FDvsN-XeHT4ZZijiBHPzIENMntCUzk0tOn1637ERH8Avv8v9ExSYHp5-HvqTWL2btbZnDshEF5-WxMQoc7XbNXY1I-QQ=w472-h497-s-no-gm?authuser=0'
+        ],
+        sizes: ["38", "39", "41", "42", "43", "44"],
+        width: ["10", "10.5", "11", "11.5"]
+      },
+      red: {
+        titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',
+        images: [
+          'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczM3xHJ5DFOxf2T151m5VJStttvnmzc53DV21RF06F0ykDeJleFo8guu-3yaTqKSznKAgfA5_r6RRXKyvzaJhTb6RMGbfY8xc4Uan6-O49HU3yVh8f0CaoKBOZl_tzQ5Y-gb0Rb7kMHvq01BaiDbVkOFUg=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczMjhPLjp4xhd3ULpP6mNbT3RCJnUCJtNHMJh5Zcb42yZwgkOWNZa7Sm2We-uQ0T9URZHHnWbhmqO2Qo8-J97aENXkMRiGqUDbL7Ne2mslsAWq5vfGHday48oTV65a0USA1ULL8pTsGRR3xtR6gUqEBijA=w472-h497-s-no-gm?authuser=0',
+          'https://lh3.googleusercontent.com/pw/AP1GczNK5EQxmR5s0zMzHAs58CPL6i6gbbkTxvirQyTRWTsDhrWbTWXjWL4knh4MneUluAHN1EiesB_1DuD-F5LWH-5j-hDsO45QtCdAoPYI6mF2uCJibtSdff_XwTeiKKmvyT41_iWVinY0zNDyMNt6OYVbqw=w472-h497-s-no-gm?authuser=0'
+        ],
+        sizes: ["36", "37", "38", "39", "41", "42"],
+        width: ["9", "9.5", "10", "10.5"]
+      },
+      description: "Zoom's super-cushioned trainer returns with a facelift and all the bouncy goodness we’ve come to love. The third iteration boasts thicker stacks of ZoomX foam – the midsole material used in the Vaporfly and Alphafly racing shoes – than you’ll find anywhere else. The foam is lighter, softer and more responsive than other compounds, returning about 70% of energy with each footstrike. The previously thick (and hot) Flyknit upper has been replaced with a sleek version that breathes far better. Plus, all the bulky pillowing that lined the collar of the first two versions has gone. Our test team cherished them for recovery runs and easy jogs – the kind of running that should make up the majority of your mileage."
       }
   ],
   screenWidth: null,

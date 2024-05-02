@@ -15,14 +15,16 @@ export const PreviewCard = ({ item }) => {
 
   const liRef = useRef(null);
   const divImageRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
-    if (liRef.current && divImageRef.current) {
+    if (liRef.current && divImageRef.current && titleRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
       const li = liRef.current;
       const divImage = divImageRef.current;
+      const title = titleRef.current;
 
       li.style.width = screenWidth / (coef * 2) + 'px';
       li.style.height = screenWidth / (coef * 1.3) + 'px';
@@ -31,6 +33,7 @@ export const PreviewCard = ({ item }) => {
       divImage.style.borderRadius = `${screenWidth / (coef * 50)}px ${screenWidth / (coef * 50)}px 0 0`;
       divImage.style.height = screenWidth / (coef * 2) + 'px';
       divImage.style.marginBottom = screenWidth / (coef * 25) + 'px';
+      title.style.fontSize = screenWidth / (coef * 25) + 'px';
     }
   }, [realScreenWidth]);
   
@@ -40,7 +43,7 @@ export const PreviewCard = ({ item }) => {
       <DivImage ref={divImageRef}>
         <Image src={item[item.color].titleImage} />
       </DivImage>
-      <Title>
+      <Title ref={titleRef}>
         {item.title}
       </Title>
       </Li>
