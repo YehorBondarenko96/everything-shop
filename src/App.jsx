@@ -7,6 +7,7 @@ import { lazy } from 'react';
 
 const ChairCard = lazy(() => import('./pages/ChairCard/ChairCard'));
 const ShoesCard = lazy(() => import('./pages/ShoesCard/ShoesCard'));
+const DescriptionShoes = lazy(() => import('./components/DescriptionShoes/DescriptionShoes'));
 
 function App() {
   return (
@@ -15,7 +16,11 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage/>}/>
           <Route path="/chair-card/:id" element={<ChairCard />} />
-          <Route path="/shoes-card/:id" element={<ShoesCard />} />
+          <Route path="/shoes-card/:id" element={<ShoesCard />}/>
+  <Route path="/shoes-card/:id/description" element={<DescriptionShoes />} />
+  {/* <Route path="*" element={<Navigate to="/" />} /> 
+</Route> */}
+
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

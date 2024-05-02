@@ -12,8 +12,10 @@ import { UlButtonsShoes } from "components/UlButtonsShoes/UlButtonsShoes";
 import { UlColorsShoes } from "components/UlColorsShoes/UlColorsShoes";
 import { SizeShose } from "components/SizeShose/SizeShose";
 import { setSize, setWidth, setOrderItems } from "../../redux/slice";
+import { useNavigate } from "react-router-dom";
 
 const ShoesCard = () => { 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const shoes = useSelector(selectItems).find(item => item.id === id);
@@ -102,7 +104,7 @@ const ShoesCard = () => {
   }, [realScreenWidth])
 
   return (
-    <Card>
+      <Card>
       <DivImgButtons>
         <DivBigImg ref={divBigImgRef}>
           <BigImg
@@ -138,7 +140,11 @@ const ShoesCard = () => {
           />
         </DivDropLists>
         <DivBigButtons ref={divBigButtonsRef}>
-          <BigButton ref={learnMoreButRef}>
+            <BigButton
+              ref={learnMoreButRef}
+              type="button"
+              onClick={() => navigate(`/shoes-card/${id}/description`)}
+            >
             Learn More
           </BigButton>
           <BigButton
@@ -150,7 +156,7 @@ const ShoesCard = () => {
           </BigButton>
         </DivBigButtons>
       </DivInfo>
-    </Card>
+      </Card>
   )
 };
 

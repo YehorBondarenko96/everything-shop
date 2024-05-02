@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectScreenWidth, selectScreenHeight } from "../../redux/selectors";
 
-export const Card = ({ children, coefForHeight = 1 }) => { 
+export const Card = ({ children, coefForHeight = 1, path = '/' }) => { 
   const realScreenWidth = useSelector(selectScreenWidth);
   const realScreenHeight = useSelector(selectScreenHeight);
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ export const Card = ({ children, coefForHeight = 1 }) => {
       const closeModal = () => { 
         window.removeEventListener('keydown', onEscPress);
         backdrop.removeEventListener('click', handelClickBackdrop);
-        navigate('/');
+          navigate(path);
     };
 
     const onEscPress = e => {
@@ -58,7 +58,7 @@ export const Card = ({ children, coefForHeight = 1 }) => {
         window.removeEventListener('keydown', onEscPress);
       };
         }
-  }, [navigate, realScreenWidth, realScreenHeight, coefForHeight]);
+  }, [navigate, realScreenWidth, realScreenHeight, coefForHeight, path]);
 
   return (
     <Backdrop ref={backdropRef} className="backdropChair">

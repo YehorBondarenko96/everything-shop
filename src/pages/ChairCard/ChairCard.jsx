@@ -106,7 +106,7 @@ const ChairCard = () => {
   }, [realScreenWidth]);
 
   return (
-    <Card coefForHeight={0.8}>
+    <Card coefForHeight={0.9}>
       {chair &&
         <>
         <DivImages ref={divImagesRef}>
