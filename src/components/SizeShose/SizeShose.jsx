@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectScreenWidth } from '../../redux/selectors';
 
-export const SizeShose = ({pButtons, id, firstParam, secondParam, setSelectedParam}) => {
+export const SizeShose = ({pButtons, id, firstParam, secondParam, setSelectedParam , secCoef=5}) => {
     const allFiltAlfRef = useRef(null);
     const secAllDivRef = useRef(null);
     const allButtonFARef = useRef(null);
@@ -33,7 +33,7 @@ export const SizeShose = ({pButtons, id, firstParam, secondParam, setSelectedPar
 
             allFiltAlf.style.height = screenWidth / (24 * coef) + 'px';
             allFiltAlf.style.width = screenWidth / (10 * coef) + 'px';
-            secAllDiv.style.height = screenWidth / (5 * coef) + 'px';
+            secAllDiv.style.height = screenWidth / (secCoef * coef) + 'px';
             secAllDiv.style.width = screenWidth / (9.1 * coef) + 'px';
             pButtonFA.style.fontSize = screenWidth / (60 * coef) + 'px';
             allButtonFA.style.width = screenWidth / (10 * coef) + 'px';

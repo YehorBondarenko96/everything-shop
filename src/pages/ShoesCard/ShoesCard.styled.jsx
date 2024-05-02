@@ -56,4 +56,5 @@ width: 100%;
 border: 0;
 color: #ffffff;
 background-color: #31407f;
+z-index: 2;
 `;

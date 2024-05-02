@@ -137,6 +137,7 @@ const ShoesCard = () => {
             firstParam='width'
             secondParam='widthes'
             setSelectedParam={setSelectedWidth}
+            secCoef={6}
           />
         </DivDropLists>
         <DivBigButtons ref={divBigButtonsRef}>

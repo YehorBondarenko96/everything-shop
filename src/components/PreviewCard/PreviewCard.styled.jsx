@@ -20,4 +20,6 @@ width: 100%;
 object-fit: cover;
 `;
 
-export const Title = styled.h3``;
+export const Title = styled.h3`
+margin: 10px;
+`;
