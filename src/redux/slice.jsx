@@ -61,6 +61,8 @@ const initialState = {
       price: '13,999',
       to: '/shoes-card',
       color: 'black',
+      size: '42',
+      width: '10.5',
       colors: ["black", "blue", "red"],
       black: {
         grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
@@ -78,7 +80,7 @@ const initialState = {
           'https://lh3.googleusercontent.com/pw/AP1GczMquX6zx7R1CEn8tcoT6iTqUUezIWh8ZGEUtMG4ZGTsU3eyXOioQYfiRKKov1yyLbfv8lELpyS4_AARX6IZadvingPu0AFZ9bKq4tVSopeM8yRLZ2TaWtwXLrsNZfAP2Q_YLOQTSTcbjH8LqRyD40_t7w=w472-h497-s-no-gm?authuser=0'
         ],
         sizes: ["41", "42", "43", "44", "45"],
-        width: ["10.5", "11", "11.5", "12"]
+        widthes: ["10.5", "11", "11.5", "12"]
       },
       blue: {
         grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
@@ -92,7 +94,7 @@ const initialState = {
           'https://lh3.googleusercontent.com/pw/AP1GczOD33n4NAbv0tmdPg4ocAkps4J3ay53nlToPdp5fwu0BxeyRHEBeljvYli1H6FDvsN-XeHT4ZZijiBHPzIENMntCUzk0tOn1637ERH8Avv8v9ExSYHp5-HvqTWL2btbZnDshEF5-WxMQoc7XbNXY1I-QQ=w472-h497-s-no-gm?authuser=0'
         ],
         sizes: ["38", "39", "41", "42", "43", "44"],
-        width: ["10", "10.5", "11", "11.5"]
+        widthes: ["10", "10.5", "11", "11.5"]
       },
       red: {
         grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',
@@ -104,12 +106,13 @@ const initialState = {
           'https://lh3.googleusercontent.com/pw/AP1GczNK5EQxmR5s0zMzHAs58CPL6i6gbbkTxvirQyTRWTsDhrWbTWXjWL4knh4MneUluAHN1EiesB_1DuD-F5LWH-5j-hDsO45QtCdAoPYI6mF2uCJibtSdff_XwTeiKKmvyT41_iWVinY0zNDyMNt6OYVbqw=w472-h497-s-no-gm?authuser=0'
         ],
         sizes: ["36", "37", "38", "39", "41", "42"],
-        width: ["9", "9.5", "10", "10.5"]
+        widthes: ["9", "9.5", "10", "10.5"]
       },
       description: "Zoom's super-cushioned trainer returns with a facelift and all the bouncy goodness we’ve come to love. The third iteration boasts thicker stacks of ZoomX foam – the midsole material used in the Vaporfly and Alphafly racing shoes – than you’ll find anywhere else. The foam is lighter, softer and more responsive than other compounds, returning about 70% of energy with each footstrike. The previously thick (and hot) Flyknit upper has been replaced with a sleek version that breathes far better. Plus, all the bulky pillowing that lined the collar of the first two versions has gone. Our test team cherished them for recovery runs and easy jogs – the kind of running that should make up the majority of your mileage."
       }
   ],
   screenWidth: null,
+  screenHeight: null,
   orderItems: []
 };
     
@@ -118,6 +121,7 @@ const goodsSlice = createSlice({
   initialState: initialState,
   reducers: {
     setScreenWidth: (state, action) => { state.screenWidth = action.payload },
+    setScreenHeight: (state, action) => { state.screenHeight = action.payload },
     setColor: (state, action) => { state.items.find(i => i.id === action.payload.id).color = action.payload.color },
     setSelectedSize: (state, action) => { state.items.find(i => i.id === action.payload.id).size.selectedSize = action.payload.size},
     setOrderItems: (state, action) => { state.orderItems.push(action.payload) },
@@ -128,4 +132,4 @@ const goodsSlice = createSlice({
 });
 
 export const goodsReducer = goodsSlice.reducer;
-export const { setScreenWidth, setColor, setSelectedSize, setOrderItems, setTitleImage } = goodsSlice.actions;
+export const { setScreenWidth, setScreenHeight, setColor, setSelectedSize, setOrderItems, setTitleImage } = goodsSlice.actions;

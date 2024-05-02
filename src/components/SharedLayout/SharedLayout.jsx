@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { setScreenWidth } from '../../redux/slice';
+import { setScreenWidth, setScreenHeight } from '../../redux/slice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -10,7 +10,8 @@ const SharedLayout = () => {
   
   const forOrientation = () => {
         setTimeout(() => {
-                dispatch(setScreenWidth(window.innerWidth));
+          dispatch(setScreenWidth(window.innerWidth));
+          dispatch(setScreenHeight(window.innerHeight));
         }, 100);
     };
 

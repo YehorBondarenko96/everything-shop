@@ -39,3 +39,5 @@ margin: 0;
 export const PriceInfo = styled.p`
 margin: 0;
 `;
+
+export const DivDropLists = styled.div``;
