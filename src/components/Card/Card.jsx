@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectScreenWidth } from "../../redux/selectors";
 
-export const Card = ({ children }) => { 
+export const Card = ({ children, coefForHeight = 1 }) => { 
   const realScreenWidth = useSelector(selectScreenWidth);
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export const Card = ({ children }) => {
       const container = containerRef.current;
 
       container.style.padding = `${screenWidth / (coef * 21)}px ${screenWidth / (coef * 10)}px`;
-      container.style.height = `${screenWidth / (coef * 1.2)}px`;
+      container.style.height = `${screenWidth / (coef * coefForHeight)}px`;
 
     const handelClickBackdrop = (e) => {
         if (e.target.classList.contains('backdropChair')) {
@@ -51,7 +51,7 @@ export const Card = ({ children }) => {
         window.removeEventListener('keydown', onEscPress);
       };
         }
-  }, [navigate, realScreenWidth]);
+  }, [navigate, realScreenWidth, coefForHeight]);
 
   return (
     <Backdrop ref={backdropChairRef} className="backdropChair">

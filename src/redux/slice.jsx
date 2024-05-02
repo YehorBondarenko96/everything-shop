@@ -58,9 +58,12 @@ const initialState = {
     {
       id: '2',
       title: 'Glideride 2',
+      price: '13,999',
       to: '/shoes-card',
       color: 'black',
+      colors: ["black", "blue", "red"],
       black: {
+        grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
         titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
         images: [
           'https://lh3.googleusercontent.com/pw/AP1GczPJdrqLBvfB05G-sJwEThXJIYZ-v6hS9NE6TV9fOxMC6jNrFYIHcz2BjvFRL7gMwnM9pCbZlyRIJhwQWuJ9KObAFr0P4nscDG1Twp9mJs-YccNZMvG9VBkRS80w2TfbRDZUSpsQ1xdr5LqCS6mgwuBtxg=w472-h497-s-no-gm?authuser=0',
@@ -78,6 +81,7 @@ const initialState = {
         width: ["10.5", "11", "11.5", "12"]
       },
       blue: {
+        grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
         titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
         images: [
           'https://lh3.googleusercontent.com/pw/AP1GczP8-KP_7B8NoyFpQpKJnzQAIlsYDgXJsUIU5JMkVRqN0UOfaPW8EXLB5zCAcVBBMHKWJoavXi4Eq7W6p3g-oRgDbEj37W7HubefSF_v1h6io_Sc8i66AG6712j6-EzQXmmGchZWbsfJ74lD8Jq1isjH9A=w472-h497-s-no-gm?authuser=0',
@@ -91,6 +95,7 @@ const initialState = {
         width: ["10", "10.5", "11", "11.5"]
       },
       red: {
+        grandTitleImage: 'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',
         titleImage: 'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',
         images: [
           'https://lh3.googleusercontent.com/pw/AP1GczOS4snueYIsTgS4kuzV9oaBHJr57Qt6bvYDSBdspg2eSkAEeylfXsZTdM2PMBC4YJSK_JMDEqmm7EkRG3fOxK6Fz26aSSxb25Gx_jLQGADMw4scSm2-YvwfsTfSKL22dHVE47Ydk7cLlVujISK5WddXOg=w472-h497-s-no-gm?authuser=0',

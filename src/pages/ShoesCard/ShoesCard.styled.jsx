@@ -2,8 +2,40 @@ import styled from "styled-components";
 
 export const DivImgButtons = styled.div`
 display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 `;
 
-export const DivImg = styled.div``;
+export const DivBigImg = styled.div`
+`;
 
-export const DivInfo = styled.div``; 
+export const BigImg = styled.img`
+width: 100%;
+object-fit: cover;
+`;
+
+export const DivInfo = styled.div`
+color: #31407f;
+`;
+
+export const TitleSection = styled.h4``;
+
+export const TitleShoes = styled.h1`
+font-weight: 500;
+`;
+
+export const DivPrice = styled.div`
+display: flex;
+width: 100%;
+justify-content: space-between;
+align-items: end;
+`;
+
+export const Price = styled.p`
+margin: 0;
+`;
+
+export const PriceInfo = styled.p`
+margin: 0;
+`;

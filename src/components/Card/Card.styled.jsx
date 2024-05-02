@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 20px;
   position: fixed;
   top: 0;
@@ -22,6 +21,5 @@ export const Container = styled.div`
   background-color: #fff;
   height: 100%;
   box-sizing: border-box;
-  position: relative;
   overflow-y: auto;
 `;

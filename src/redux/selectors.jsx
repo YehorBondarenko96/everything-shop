@@ -7,3 +7,9 @@ export const selectColorChair = state => state.goods.items.find(i => i.id === '1
 export const selectSizeChair = state => state.goods.items.find(i => i.id === '1').size;
 
 export const selectTitleImageChair = state => state.goods.items.find(i => i.id === '1')[state.goods.items.find(i => i.id === '1').color].titleImage;
+
+export const selectColorShoes = state => state.goods.items.find(i => i.id === '2').color;
+
+export const selectSizeShoes = state => state.goods.items.find(i => i.id === '2').size;
+
+export const selectTitleImageShoes = state => state.goods.items.find(i => i.id === '2')[state.goods.items.find(i => i.id === '2').color].titleImage;
