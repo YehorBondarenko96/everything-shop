@@ -23,7 +23,7 @@ export const Card = ({ children }) => {
       const container = containerRef.current;
 
       container.style.padding = `${screenWidth / (coef * 21)}px ${screenWidth / (coef * 10)}px`;
-      
+      container.style.height = `${screenWidth / (coef * 1.2)}px`;
 
     const handelClickBackdrop = (e) => {
         if (e.target.classList.contains('backdropChair')) {
@@ -55,7 +55,7 @@ export const Card = ({ children }) => {
 
   return (
     <Backdrop ref={backdropChairRef} className="backdropChair">
-      <Container ref={containerRef}>
+        <Container ref={containerRef}>
         {children}
       </Container>
     </Backdrop>

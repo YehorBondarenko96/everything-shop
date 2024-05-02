@@ -1,54 +1,43 @@
 import css from './QuantityInput.module.css';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { selectScreenWidth } from 'redux/selectors';
+import { selectScreenWidth } from '../../redux/selectors';
 
-export const QuantityInput = () => { 
-  const [quantity, setQuantity] = useState(1);
-
+export const QuantityInput = ({quantity, setQuantity}) => { 
   const realScreenWidth = useSelector(selectScreenWidth);
 
   const inputSavDrRef = useRef(null);
   const plusButRef = useRef(null); 
   const minButRef = useRef(null);
 
-  const updateValueInp = (d, evt) => {
+  const updateValueInp = (evt) => {
         evt.preventDefault();
         const inpValue = evt.target.value;
-        setStInp(d, inpValue);
+        setQuantity(inpValue);
     };
 
-  const forBlur = (d, evt) => {
-        const inpV = evt.target.value;
-        if (Number(inpV) <= 0) {
-            delDrSh(d);
-        };
-    };
-
-    const forPlus = (d) => {
-        const newValP = Number(d.quantity) + 1;
+    const forPlus = () => {
+        const newValP = Number(quantity) + 1;
         if (newValP > 0) {
-            const newVP = String(newValP);
-            setStInp(d, newVP);
+            setQuantity(newValP);
         } else{
-            delDrSh(d);
+            setQuantity(1);
         };
     };
 
-    const forMin = (d) => {
-        const newValM = Number(d.quantity) - 1;
+    const forMin = () => {
+        const newValM = Number(quantity) - 1;
         if (newValM > 0) {
-            const newVM = String(newValM);
-            setStInp(d, newVM);
+            setQuantity(newValM);
         } else{
-            delDrSh(d);
+            setQuantity(1);
         };
     };
 
   useEffect(() => {
     if (inputSavDrRef.current && plusButRef.current && minButRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
-      const coef = 2;
+      const coef = 3;
       
       const inputSavDr = inputSavDrRef.current;
       const plusBut = plusButRef.current;
@@ -56,7 +45,7 @@ export const QuantityInput = () => {
 
       inputSavDr.style.width = screenWidth > 450 ? screenWidth / (coef * 12) + 'px' : screenWidth / (coef * 25) + 'px';
       inputSavDr.style.height = screenWidth / (coef * 12) - 2 + 'px';
-      inputSavDr.style.borderRadius = screenWidth / (coef * 36) + 'px';
+      inputSavDr.style.borderRadius = screenWidth / (coef * 100) + 'px';
       inputSavDr.style.fontSize = screenWidth / (coef * 30) + 'px';
       plusBut.style.height = screenWidth / (coef * 12) + 'px';
       minBut.style.height = screenWidth / (coef * 12) + 'px';
@@ -71,30 +60,29 @@ export const QuantityInput = () => {
 
   return (
     <div className={css.divInput}>
-                            <button
-                                type="button"
-                                ref={minButRef}
-                                className={css.minBut}
-                                onClick={() => forMin(drug)}
-                            ></button>
-                            <input
-                                ref={inputSavDrRef}
-                                className={css.inputSavDr}
-                                name='quantity'
-                                type="text"
-                                onInput={(e) => {
-                                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                                }}
-                                value={drug.quantity}
-                                onChange={e => updateValueInp(drug, e)}
-                                onBlur={e => forBlur(drug, e)}
-                            />
-                            <button
-                                type="button"
-                                ref={plusButRef}
-                                className={css.plusBut}
-                                onClick={() => forPlus(drug)}
-                            ></button>
-                        </div>
+        <button
+            type="button"
+            ref={minButRef}
+            className={css.minBut}
+            onClick={forMin}
+        ></button>
+        <input
+            ref={inputSavDrRef}
+            className={css.inputSavDr}
+            name='quantity'
+            type="text"
+            onInput={(e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            }}
+            value={quantity}
+            onChange={updateValueInp}
+        />
+        <button
+            type="button"
+            ref={plusButRef}
+            className={css.plusBut}
+            onClick={forPlus}
+        ></button>
+    </div>
   )
 };

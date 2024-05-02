@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { selectScreenWidth } from "../../redux/selectors";
 
-export const UlChairsPhoto = ({ photos, title }) => {
+export const UlChairsPhoto = ({ id, photos, title }) => {
   const realScreenWidth = useSelector(selectScreenWidth);
 
 
@@ -28,7 +28,7 @@ export const UlChairsPhoto = ({ photos, title }) => {
     <AllDiv>
       <Ul ref={ulRef}>
       {photos &&
-        photos.map(photo => <LiChairsPhoto key={photo} photo={photo} alt={title} />)
+        photos.map(photo => <LiChairsPhoto key={photo} id={id} photo={photo} alt={title} />)
       }
     </Ul>
     </AllDiv>

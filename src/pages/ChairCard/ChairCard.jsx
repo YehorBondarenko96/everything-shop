@@ -1,31 +1,24 @@
 import { Card } from "../../components/Card/Card";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setOrderItems } from "../../redux/slice";
 import { selectItems, selectScreenWidth } from "../../redux/selectors";
 import { useParams } from "react-router-dom";
 import { UlChairsPhoto } from "../../components/UlChairsPhoto/UlChairsPhoto";
 import {
-  DivImages,
-  DivListImages,
-  Button,
-  IconButton,
-  DivBigImg,
-  BigImg,
-  DivText,
-  TitleChair,
-  Price,
-  OldPrice,
-  PlainText,
-  DivDescription,
-  TitleDescription,
-  DivOptions
+  DivImages, DivListImages, Button, IconButton, DivBigImg, BigImg, DivText, TitleChair,
+  Price, OldPrice, PlainText, DivDescription, TitleDescription, DivOptions, DivQuantityShopButton,
+  ShopButton
 } from "./ChairCard.styled";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
 import { UlColorsChair } from "components/UlColorsChair/UlColorsChair";
 import { UlSizesChair } from "components/UlSizesChair/UlSizesChair";
+import { QuantityInput } from "components/QuantityInput/QuantityInput";
 
 const ChairCard = () => { 
-  const {id} = useParams();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
   const chair = useSelector(selectItems).find(item => item.id === id);
   const realScreenWidth = useSelector(selectScreenWidth);
 
@@ -37,10 +30,24 @@ const ChairCard = () => {
   const priceRef = useRef(null);
   const titleDescriptionRef = useRef(null);
   const divOptionsRef = useRef(null);
+  const shopButtonRef = useRef(null);
+
+  const handelClick = () => { 
+    const dataForOrder = {
+      id,
+      price: chair.newPrice ? chair.newPrice : chair.price,
+      title: chair.title,
+      color: chair.color,
+      size: chair.size.selectedSize,
+      quantity
+    };
+    dispatch(setOrderItems(dataForOrder));
+  };
 
   useEffect(() => {
     if (divImagesRef.current && divTextRef.current && titleChairRef.current && priceRef.current
-        && titleDescriptionRef.current && divBigImgRef.current && divOptionsRef.current) {
+      && titleDescriptionRef.current && divBigImgRef.current && divOptionsRef.current
+      && shopButtonRef.current) {
       const screenWidth = realScreenWidth > 1000 ? 1000 : realScreenWidth;
       const coef = 2;
 
@@ -51,6 +58,7 @@ const ChairCard = () => {
       const price = priceRef.current;
       const titleDescription = titleDescriptionRef.current;
       const divOptions = divOptionsRef.current;
+      const shopButton = shopButtonRef.current;
 
       divImages.style.height = screenWidth / (coef * 1.5) + 'px';
       divImages.style.gap = screenWidth / (coef * 15) + 'px';
@@ -62,6 +70,10 @@ const ChairCard = () => {
       divBigImg.style.width = screenWidth / (coef * 1.5) + 'px';
       divOptions.style.marginBottom = screenWidth / (coef * 42) + 'px';
       divOptions.style.gap = screenWidth / (coef * 42) + 'px';
+      divOptions.style.width = screenWidth / (coef * 1.4) + 'px';
+      shopButton.style.height = screenWidth / (coef * 18) - 1 + 'px';
+      shopButton.style.borderRadius = screenWidth / (coef * 150) + 'px';
+      shopButton.style.fontSize = screenWidth / (coef * 40) + 'px';
     }
   }, [realScreenWidth]);
 
@@ -76,7 +88,7 @@ const ChairCard = () => {
             <use href={`${sprite}#arrow-up`} />
             </IconButton>
           </Button>
-          <UlChairsPhoto photos={chair[chair.color].images} title={chair.title} />
+          <UlChairsPhoto id={id} photos={chair[chair.color].images} title={chair.title.toLowerCase()} />
           <Button>
             <IconButton>
             <use href={`${sprite}#arrow-down`} />
@@ -84,7 +96,7 @@ const ChairCard = () => {
           </Button>
           </DivListImages>
           <DivBigImg ref={divBigImgRef}>
-            <BigImg src={ chair[chair.color].titleImage } alt={chair.title} />
+            <BigImg src={ chair[chair.color].titleImage } alt={chair.title.toLowerCase()} />
           </DivBigImg>
         </DivImages>
         <DivText ref={divTextRef}>
@@ -96,6 +108,16 @@ const ChairCard = () => {
           <DivOptions ref={divOptionsRef}>
             <UlColorsChair id={id} />
             <UlSizesChair id={id} />
+            <DivQuantityShopButton>
+              <QuantityInput quantity={quantity} setQuantity={setQuantity}/>
+              <ShopButton
+                ref={shopButtonRef}
+                type="button"
+                onClick={handelClick}
+              >
+                ORDER
+              </ShopButton>
+            </DivQuantityShopButton>
           </DivOptions>
           <DivDescription>
             <TitleDescription ref={titleDescriptionRef}>DESCRIPTION</TitleDescription>

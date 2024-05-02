@@ -33,6 +33,8 @@ object-fit: cover;
 
 export const DivText = styled.div`
 background-color: #f6f6f6;
+  overflow-y: auto;
+  border-radius: 5px;
 `;
 
 export const TitleChair = styled.h1`
@@ -62,4 +64,25 @@ color: #a7a7a7
 export const DivOptions = styled.div`
 display: flex;
 flex-direction: column;
+`;
+
+export const DivQuantityShopButton = styled.div`
+display: flex;
+gap: 14px;
+
+@media(max-width: 700px){
+  gap: 10px;
+};
+`;
+
+export const ShopButton = styled.button`
+width: 100%;
+border: 0;
+background-color: #525252;
+color: #ffffff;
+transition: background-color 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
+
+&:hover{
+  background-color: #393939;
+}
 `;

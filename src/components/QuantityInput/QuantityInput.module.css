@@ -6,7 +6,7 @@
   margin: 0;
   display: flex;
   text-align: center;
-  border: 1px grey solid;
+  border: 0.5px #000000 solid;
   padding: 0 10px;
 }
 
@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  top: 0;
   content: "";
   background-size: 80%;
   background-repeat: no-repeat;

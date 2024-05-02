@@ -66,7 +66,8 @@ const initialState = {
       },
       }
   ],
-  screenWidth: null
+  screenWidth: null,
+  orderItems: []
 };
     
 const goodsSlice = createSlice({
@@ -75,10 +76,13 @@ const goodsSlice = createSlice({
   reducers: {
     setScreenWidth: (state, action) => { state.screenWidth = action.payload },
     setColor: (state, action) => { state.items.find(i => i.id === action.payload.id).color = action.payload.color },
-    setSelectedSize: (state, action) => { state.items.find(i => i.id === action.payload.id).size.selectedSize = action.payload.size}
-    
+    setSelectedSize: (state, action) => { state.items.find(i => i.id === action.payload.id).size.selectedSize = action.payload.size},
+    setOrderItems: (state, action) => { state.orderItems.push(action.payload) },
+    setTitleImage: (state, action) => {
+      state.items.find(i => i.id === action.payload.id)[state.items.find(i => i.id === action.payload.id).color].titleImage = action.payload.titleImage;
+    }
   }
 });
 
 export const goodsReducer = goodsSlice.reducer;
-export const { setScreenWidth, setColor, setSelectedSize } = goodsSlice.actions;
+export const { setScreenWidth, setColor, setSelectedSize, setOrderItems, setTitleImage } = goodsSlice.actions;

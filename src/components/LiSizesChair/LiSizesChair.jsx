@@ -31,7 +31,7 @@ export const LiSizesChair = ({ size, id }) => {
       const li = liRef.current;
 
       li.style.height = screenWidth / (coef * 27.78) + 'px';
-      li.style.width = screenWidth / (coef * 3.125) + 'px';
+      // li.style.width = screenWidth / (coef * 3.125) + 'px';
     };
   }, [realScreenWidth]);
 
