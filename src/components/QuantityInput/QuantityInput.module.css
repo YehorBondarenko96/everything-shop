@@ -1,0 +1,43 @@
+.divInput {
+  position: relative;
+}
+
+.inputSavDr {
+  margin: 0;
+  display: flex;
+  text-align: center;
+  border: 1px grey solid;
+  padding: 0 10px;
+}
+
+.minBut {
+  border: transparent;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  content: "";
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./minus-svgrepo-com.svg');
+  padding: 0;
+}
+
+.plusBut {
+  border: transparent;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  content: "";
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./plus-svgrepo-com.svg');
+  padding: 0;
+}

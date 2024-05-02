@@ -22,6 +22,7 @@ import {
 import { useEffect, useRef } from "react";
 import sprite from '../../assets/sprite.svg';
 import { UlColorsChair } from "components/UlColorsChair/UlColorsChair";
+import { UlSizesChair } from "components/UlSizesChair/UlSizesChair";
 
 const ChairCard = () => { 
   const {id} = useParams();
@@ -60,6 +61,7 @@ const ChairCard = () => {
       titleDescription.style.marginTop = screenWidth / (coef * 71.8) + 'px';
       divBigImg.style.width = screenWidth / (coef * 1.5) + 'px';
       divOptions.style.marginBottom = screenWidth / (coef * 42) + 'px';
+      divOptions.style.gap = screenWidth / (coef * 42) + 'px';
     }
   }, [realScreenWidth]);
 
@@ -92,7 +94,8 @@ const ChairCard = () => {
             {chair.smollDescription}
           </PlainText>
           <DivOptions ref={divOptionsRef}>
-            <UlColorsChair id={ id } />
+            <UlColorsChair id={id} />
+            <UlSizesChair id={id} />
           </DivOptions>
           <DivDescription>
             <TitleDescription ref={titleDescriptionRef}>DESCRIPTION</TitleDescription>

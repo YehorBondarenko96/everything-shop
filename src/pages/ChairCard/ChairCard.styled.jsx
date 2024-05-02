@@ -59,4 +59,7 @@ export const TitleDescription = styled.h3`
 color: #a7a7a7
 `;
 
-export const DivOptions = styled.div``;
+export const DivOptions = styled.div`
+display: flex;
+flex-direction: column;
+`;

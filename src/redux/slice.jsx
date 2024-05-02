@@ -49,6 +49,10 @@ const initialState = {
           'https://lh3.googleusercontent.com/pw/AP1GczPrDzUsIMnWplWohUZNMb7cjPoMxOAbSfpQYgv_rqKbH72n-fUcaVAr_PBO1IULYbu7eB18TcwcNSxz3wwrG59yq46YwMVVJsZWpyh3nM5My3UOTHIKKfLGJh7CvoNCkDEIK3-xvbk_jd2kMaV85jo7EQ=w1024-h768-s-no-gm?authuser=0',
           'https://lh3.googleusercontent.com/pw/AP1GczOevrygWXZwobYdjW55fMPhoi7wZwkHjGkqUhgJrypuFk4Mkv_OdFZlN31hwpSyVvXgIu6hbr611eojLEVu9Lrjnb7GEZbwWD1wtKuVBGhNvXT6jyCTX_3-_c-5FEaHzFTb02jtNVzBtU6fv5fFY8p9Ig=w1024-h768-s-no-gm?authuser=0'
         ]
+      },
+      size: {
+        sizes: ['60CM X 48CM X 28CM', '54CM X 40CM X 24CM'],
+        selectedSize: '60CM X 48CM X 28CM'
       }
     },
     {
@@ -70,9 +74,11 @@ const goodsSlice = createSlice({
   initialState: initialState,
   reducers: {
     setScreenWidth: (state, action) => { state.screenWidth = action.payload },
-    setColor: (state, action) => { state.items.find(i => i.id === action.payload.id).color = action.payload.color}
+    setColor: (state, action) => { state.items.find(i => i.id === action.payload.id).color = action.payload.color },
+    setSelectedSize: (state, action) => { state.items.find(i => i.id === action.payload.id).size.selectedSize = action.payload.size}
+    
   }
 });
 
 export const goodsReducer = goodsSlice.reducer;
-export const { setScreenWidth, setColor } = goodsSlice.actions;
+export const { setScreenWidth, setColor, setSelectedSize } = goodsSlice.actions;
