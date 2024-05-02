@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectScreenWidth } from '../../redux/selectors';
 
-export const SizeShose = ({pButtons, id, firstParam, secondParam}) => {
+export const SizeShose = ({pButtons, id, firstParam, secondParam, setSelectedParam}) => {
     const allFiltAlfRef = useRef(null);
     const secAllDivRef = useRef(null);
     const allButtonFARef = useRef(null);
@@ -87,7 +87,12 @@ export const SizeShose = ({pButtons, id, firstParam, secondParam}) => {
                 <div ref={divArrowRef} className={css.divArrow}></div>
             </div>
             <div ref={divDrLRef} className={css.divDrL}>
-                    <DropListSizeShose id={id} firstParam={firstParam} secondParam={secondParam} />
+                    <DropListSizeShose
+                        id={id}
+                        firstParam={firstParam}
+                        secondParam={secondParam}
+                        setSelectedParam={setSelectedParam}
+                    />
             </div>
             </div>
         </div>

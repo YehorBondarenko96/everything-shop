@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectItems, selectScreenWidth, selectColorShoes } from "../../redux/selectors";
 import { LiDropListSizeShose } from "components/LiDropListSizeShose/LiDropListSizeShose";
 
-export const DropListSizeShose = ({ id, firstParam, secondParam }) => {
+export const DropListSizeShose = ({ id, firstParam, secondParam, setSelectedParam }) => {
   const color = useSelector(selectColorShoes);
   const shoes = useSelector(selectItems).find(item => item.id === id);
   const selectedParam = shoes[firstParam];
@@ -25,8 +25,7 @@ export const DropListSizeShose = ({ id, firstParam, secondParam }) => {
       const allDiv = allDivRef.current;
       const ul = ulRef.current;
 
-      // allDiv.style.height = screenWidth / (coef * 3.5) + 'px';
-      allDiv.style.width = screenWidth / (coef * 5) + 'px';
+      allDiv.style.width = screenWidth / (coef * 7) + 'px';
       ul.style.fontSize = screenWidth / (coef * 36) + 'px';
     }
   }, [realScreenWidth]);
@@ -36,8 +35,10 @@ export const DropListSizeShose = ({ id, firstParam, secondParam }) => {
       <Ul ref={ulRef}>
         {arrParam.map((param, index) => <LiDropListSizeShose
           key={index}
+          id={id}
           selected={selectedParam}
           value={param}
+          setSelectedParam={setSelectedParam}
         />)}
       </Ul>
     </AllDiv>

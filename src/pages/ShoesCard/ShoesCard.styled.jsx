@@ -17,6 +17,8 @@ object-fit: cover;
 
 export const DivInfo = styled.div`
 color: #31407f;
+display: flex;
+flex-direction: column;
 `;
 
 export const TitleSection = styled.h4``;
@@ -41,3 +43,17 @@ margin: 0;
 `;
 
 export const DivDropLists = styled.div``;
+
+export const DivBigButtons = styled.div`
+display: flex;
+width: 100%;
+flex: 1;
+align-items: end;
+`;
+
+export const BigButton = styled.button`
+width: 100%;
+border: 0;
+color: #ffffff;
+background-color: #31407f;
+`;

@@ -127,9 +127,20 @@ const goodsSlice = createSlice({
     setOrderItems: (state, action) => { state.orderItems.push(action.payload) },
     setTitleImage: (state, action) => {
       state.items.find(i => i.id === action.payload.id)[state.items.find(i => i.id === action.payload.id).color].titleImage = action.payload.titleImage;
-    }
+    },
+    setSize: (state, action) => { state.items.find(i => i.id === action.payload.id).size = action.payload.size },
+    setWidth: (state, action) => { state.items.find(i => i.id === action.payload.id).width = action.payload.width }
   }
 });
 
 export const goodsReducer = goodsSlice.reducer;
-export const { setScreenWidth, setScreenHeight, setColor, setSelectedSize, setOrderItems, setTitleImage } = goodsSlice.actions;
+export const {
+  setScreenWidth,
+  setScreenHeight,
+  setColor,
+  setSelectedSize,
+  setOrderItems,
+  setTitleImage,
+  setSize,
+  setWidth
+} = goodsSlice.actions;

@@ -50,10 +50,10 @@
 
 .divDrL{
     position: absolute;
-    left: 0;
+    left: 50%;
     top: 25%;
     padding: 0;
-    transform: translateY(-100%);
+    transform: translate(-50%, -100%);
     border-radius: 10px;
     background-color: #fff;
     white-space: nowrap;
@@ -67,5 +67,5 @@
     white-space: normal;
     clip: auto;
     overflow: visible;
-    transform: translateY(0);
+    transform: translate(-50%, -5%);
 }
