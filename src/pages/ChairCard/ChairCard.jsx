@@ -1,6 +1,6 @@
 import { Card } from "../../components/Card/Card";
 import { useSelector, useDispatch } from "react-redux";
-import { setOrderItems } from "../../redux/slice";
+import { setOrderItems, setTitleImage } from "../../redux/slice";
 import { selectItems, selectScreenWidth } from "../../redux/selectors";
 import { useParams } from "react-router-dom";
 import { UlChairsPhoto } from "../../components/UlChairsPhoto/UlChairsPhoto";
@@ -32,7 +32,7 @@ const ChairCard = () => {
   const divOptionsRef = useRef(null);
   const shopButtonRef = useRef(null);
 
-  const handelClick = () => { 
+  const handleClick = () => { 
     const dataForOrder = {
       id,
       price: chair.newPrice ? chair.newPrice : chair.price,
@@ -42,6 +42,34 @@ const ChairCard = () => {
       quantity
     };
     dispatch(setOrderItems(dataForOrder));
+  };
+
+  const handleClickArrowUp = () => { 
+    const arrImages = chair[chair.color].images;
+    const titleImage = chair[chair.color].titleImage;
+    const indexTitleImage = arrImages.indexOf(titleImage);
+    if (indexTitleImage > 0) {
+      const nextImage = arrImages[indexTitleImage - 1];
+      const dataForSetTitImage = {
+        id,
+        titleImage: nextImage
+      };
+      dispatch((setTitleImage(dataForSetTitImage)));
+    }
+  };
+
+  const handleClickArrowDown = () => { 
+    const arrImages = chair[chair.color].images;
+    const titleImage = chair[chair.color].titleImage;
+    const indexTitleImage = arrImages.indexOf(titleImage);
+    if (indexTitleImage < arrImages.length - 1) {
+      const nextImage = arrImages[indexTitleImage + 1];
+      const dataForSetTitImage = {
+        id,
+        titleImage: nextImage
+      };
+      dispatch((setTitleImage(dataForSetTitImage)));
+    }
   };
 
   useEffect(() => {
@@ -83,13 +111,19 @@ const ChairCard = () => {
         <>
         <DivImages ref={divImagesRef}>
           <DivListImages>
-            <Button>
+            <Button
+              type="button"
+              onClick={handleClickArrowUp}
+            >
             <IconButton>
             <use href={`${sprite}#arrow-up`} />
             </IconButton>
           </Button>
           <UlChairsPhoto id={id} photos={chair[chair.color].images} title={chair.title.toLowerCase()} />
-          <Button>
+            <Button
+              type="button"
+              onClick={handleClickArrowDown}
+            >
             <IconButton>
             <use href={`${sprite}#arrow-down`} />
             </IconButton>
@@ -113,7 +147,7 @@ const ChairCard = () => {
               <ShopButton
                 ref={shopButtonRef}
                 type="button"
-                onClick={handelClick}
+                onClick={handleClick}
               >
                 ORDER
               </ShopButton>
