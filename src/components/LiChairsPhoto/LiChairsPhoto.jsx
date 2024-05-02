@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectScreenWidth, selectTitleImageChair } from "../../redux/selectors";
 import { setTitleImage } from "../../redux/slice";
 
-export const LiChairsPhoto = ({ id, photo, alt }) => {
+export const LiChairsPhoto = ({ id, photo, alt, ulPhotos, heightUlPhotos }) => {
   const dispatch = useDispatch();
   const realScreenWidth = useSelector(selectScreenWidth);
   const titleImage = useSelector(selectTitleImageChair);
@@ -37,12 +37,18 @@ export const LiChairsPhoto = ({ id, photo, alt }) => {
       li.style.borderRadius = screenWidth / (coef * 70) + 'px';
       button.style.borderRadius = screenWidth / (coef * 70) + 'px';
 
-      if (titleImage === photo) { 
-        console.log(1);
-        li.scrollTop = 10;
+      if (titleImage === photo) {
+        if (ulPhotos && heightUlPhotos > 0) {
+          const ulTop = ulPhotos.getBoundingClientRect().top;
+          const liTop = li.getBoundingClientRect().top;
+          const liHeight = li.offsetHeight;
+          const scrollValue = ulPhotos.scrollTop - (heightUlPhotos / 2 - liHeight / 2 + (ulTop - liTop));
+          ulPhotos.style.scrollBehavior = 'smooth';
+          ulPhotos.scrollTop = scrollValue;
+        }
       };
     }
-  }, [realScreenWidth, photo, titleImage]);
+  }, [realScreenWidth, photo, titleImage, ulPhotos, heightUlPhotos]);
 
   return (
     <Li
